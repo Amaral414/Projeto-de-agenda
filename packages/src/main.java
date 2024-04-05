@@ -1,31 +1,33 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 
 public class main{
+    
 
     // ================= MAIN ================= 
     public static void main(String args[]){
         Scanner input = new Scanner(System.in);
+        ArrayList<String> usuarios = new ArrayList<String>();
         boolean condicaoGeral = true;
 
         do {
             
-        
-            usuario [][] usuarios = {
-                {}
-            }; 
             
 
             int escolhe = opcoesEntrada();
             switch (escolhe) {
                 case 1:         
                 //  ENTRAR:
+                for (String i: usuarios) {
+                    System.out.println(i);
+                }
                 break;
                     
 
                 case 2:     
                 //  CADASTRAR:
-                    cadastrar();
+                    
+                    usuarios.add(cadastrar().toString());
 
 
                     break;
@@ -117,7 +119,7 @@ public class main{
             return condition1;
         }
     
-        public static usuario cadastrar(){
+        public static String cadastrar(){
             Scanner input = new Scanner(System.in);
             String nomeDeUsuario, nomeCompleto;
             int CPF, senha;
@@ -133,9 +135,7 @@ public class main{
     
             usuario usr = new usuario(CPF, nomeCompleto, nomeDeUsuario, senha);
             
-            // talvez seja fora = usuario[] usuarios = {};
-            // criar uma lista com os dados do usuario
-    
-            return usr;
+            return usr.toString();
         }
+        
 }
