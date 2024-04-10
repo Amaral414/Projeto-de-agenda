@@ -16,21 +16,23 @@ public class main{
 
             int escolhe = opcoesEntrada();
             switch (escolhe) {
-                case 1:         
-                //  ENTRAR:
-                for (String i: usuarios) {
-                    System.out.println(i);
-                }
+                case 1: //  ENTRAR: ( APARECE OS USUARIOS AQUI)
+                //  for (String i: usuarios) {
+                //    System.out.println(i);
+                //}
+                
+
                 break;
                     
 
-                case 2:     
-                //  CADASTRAR:
-                    
-                    usuarios.add(cadastrar().toString());
+                case 2: //  CADASTRAR:
+                       
+                String[] usr = cadastrar();
+                System.out.println(usr);
 
 
                     break;
+
 
                 case 3:
                     condicaoGeral = false;
@@ -76,7 +78,7 @@ public class main{
             System.out.println("SEUS DADOS:");
             System.out.printf("Nome completo: %s\n", nomeC);
             System.out.printf("Nome de usuário: %s\n", nomeU);
-            int ok = input.nextInt();
+            
     
         }
     
@@ -119,7 +121,7 @@ public class main{
             return condition1;
         }
     
-        public static String cadastrar(){
+        public static String[] cadastrar(){
             Scanner input = new Scanner(System.in);
             String nomeDeUsuario, nomeCompleto;
             int CPF, senha;
@@ -132,10 +134,11 @@ public class main{
             CPF = input.nextInt();
             System.out.print("Senha: ");
             senha = input.nextInt();
-    
-            usuario usr = new usuario(CPF, nomeCompleto, nomeDeUsuario, senha);
             
-            return usr.toString();
+            String[] dadosUsuario = {nomeCompleto, nomeDeUsuario};
+            return null;
         }
+
+  
         
 }

@@ -1,11 +1,11 @@
 public class usuario {
-    String nomeCompleto;
-    String nome;
-    String nomeDeUsuario;
+    String[] dados;
+    String nomeCompleto,nome, nomeDeUsuario;
     int senha;
     int CPF;
     
     public usuario(int CPF, String nomeCompleto,String nomeDeUsuario, int senha) {
+    this.CPF = CPF;
     this.nomeCompleto = nomeCompleto;
     this.nomeDeUsuario = nomeDeUsuario;
     this.senha = senha;
@@ -16,7 +16,13 @@ public class usuario {
     }
 
     public void setCPF(int CPF) {
-        CPF = CPF;
+        this.CPF = CPF;
+    }
+    public void setDados(int CPF, String nomeCompleto,String nomeDeUsuario, int senha){
+        CPF = getCPF();
+        nomeCompleto = getNomeCompleto();
+        nomeDeUsuario = getNomeDeUsuario();
+        senha = getSenha();
     }
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
@@ -39,7 +45,10 @@ public class usuario {
     public int getCPF() {
         return CPF;
     }
-
+    public String[] getDados(){
+        
+        return dados;
+    }
     
     
 
