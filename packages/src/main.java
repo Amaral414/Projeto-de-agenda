@@ -7,7 +7,7 @@ public class main{
     // ================= MAIN ================= 
     public static void main(String args[]){
         Scanner input = new Scanner(System.in);
-        ArrayList<String> usuarios = new ArrayList<String>();
+        ArrayList<String> usuarios = new ArrayList();
         boolean condicaoGeral = true;
 
         do {
@@ -17,19 +17,16 @@ public class main{
             int escolhe = opcoesEntrada();
             switch (escolhe) {
                 case 1: //  ENTRAR: ( APARECE OS USUARIOS AQUI)
-                //  for (String i: usuarios) {
-                //    System.out.println(i);
-                //}
+                  for (String i: usuarios) {
+                    System.out.println(usuarios.get(0));
+                }
                 
 
                 break;
                     
 
                 case 2: //  CADASTRAR:
-                       
-                String[] usr = cadastrar();
-                System.out.println(usr);
-
+                    usuarios.add(cadastrar());
 
                     break;
 
@@ -73,11 +70,12 @@ public class main{
             
         }
     
-        public static void dados(String nomeC,String nomeU,int senhaU){
-            Scanner input = new Scanner(System.in); 
+        public static void dados(String nomeC,String nomeU,int cpf){ 
             System.out.println("SEUS DADOS:");
             System.out.printf("Nome completo: %s\n", nomeC);
             System.out.printf("Nome de usuário: %s\n", nomeU);
+            System.out.printf("CPF: %d\n", cpf);
+
             
     
         }
@@ -85,7 +83,7 @@ public class main{
         public static int login(usuario usuario1, usuario usuario2, usuario usuario3){
             Scanner input = new Scanner(System.in);
             usuario Usr1 = usuario1;
-            usuario Usr2= usuario2;
+            usuario Usr2 = usuario2;
             usuario Usr3 = usuario3;
             
             
@@ -121,22 +119,29 @@ public class main{
             return condition1;
         }
     
-        public static String[] cadastrar(){
+        public static String cadastrar(){
             Scanner input = new Scanner(System.in);
             String nomeDeUsuario, nomeCompleto;
             int CPF, senha;
     
             System.out.print("Nome Completo: ");
-            nomeCompleto = input.nextLine();
+            nomeCompleto = input.next();
             System.out.print("Nome de usuário: ");
-            nomeDeUsuario = input.nextLine();
+            nomeDeUsuario = input.next();
             System.out.print("CPF: ");
             CPF = input.nextInt();
             System.out.print("Senha: ");
             senha = input.nextInt();
-            
-            String[] dadosUsuario = {nomeCompleto, nomeDeUsuario};
-            return null;
+
+            usuario usr = new usuario(CPF, nomeCompleto, nomeDeUsuario, senha);
+
+            String stringCpf = Integer.toString(usr.getCPF());
+            String stringSenha = Integer.toString(usr.getSenha());
+
+
+            String[] dadosUsuario = {usr.getNomeCompleto(),usr.getNomeDeUsuario(),stringCpf,stringSenha};
+
+            return dadosUsuario.toString();
         }
 
   
