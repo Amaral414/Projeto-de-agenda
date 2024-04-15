@@ -7,7 +7,7 @@ public class main{
     // ================= MAIN ================= 
     public static void main(String args[]){
         Scanner input = new Scanner(System.in);
-        ArrayList<String> usuarios = new ArrayList();
+        ArrayList<usuario> usuarios = new ArrayList();
         boolean condicaoGeral = true;
 
         do {
@@ -17,8 +17,11 @@ public class main{
             int escolhe = opcoesEntrada();
             switch (escolhe) {
                 case 1: //  ENTRAR: ( APARECE OS USUARIOS AQUI)
-                  for (String i: usuarios) {
-                    System.out.println(usuarios.get(0));
+                
+                
+                
+                for (usuario i: usuarios) {
+                    System.out.println(i.getNomeCompleto());
                 }
                 
 
@@ -80,46 +83,24 @@ public class main{
     
         }
     
-        public static int login(usuario usuario1, usuario usuario2, usuario usuario3){
+        public static int login(){
             Scanner input = new Scanner(System.in);
-            usuario Usr1 = usuario1;
-            usuario Usr2 = usuario2;
-            usuario Usr3 = usuario3;
-            
-            
-            
+                   
             int condition1 = 0;
-    
-            do {
                 
-                int cpf;
-                int senhaUsuario;
-    
-                System.out.println("==== DIGITE SEU RA E SENHA ====");
-                System.out.print("CPF: ");
-                cpf = input.nextInt();
-                System.out.print("Senha: ");
-                senhaUsuario = input.nextInt();
-    
-                if (cpf == Usr1.getCPF() || senhaUsuario == Usr1.getSenha()){
-                    condition1 = condition1+1;
-                }
-    
-                if (cpf == Usr2.getCPF() || senhaUsuario == Usr2.getSenha()){
-                    condition1 = condition1+2;
-                }
-    
-                if (cpf == Usr3.getCPF() || senhaUsuario == Usr3.getSenha()){
-                    condition1 =condition1+3;
-                }
-            
-            } while (condition1 == 0);
-    
-            
+            int cpf;
+            int senhaUsuario;
+
+            System.out.println("==== DIGITE SEU RA E SENHA ====");
+            System.out.print("CPF: ");
+            cpf = input.nextInt();
+            System.out.print("Senha: ");
+            senhaUsuario = input.nextInt();
+
             return condition1;
         }
     
-        public static String cadastrar(){
+        public static usuario cadastrar(){
             Scanner input = new Scanner(System.in);
             String nomeDeUsuario, nomeCompleto;
             int CPF, senha;
@@ -135,13 +116,9 @@ public class main{
 
             usuario usr = new usuario(CPF, nomeCompleto, nomeDeUsuario, senha);
 
-            String stringCpf = Integer.toString(usr.getCPF());
-            String stringSenha = Integer.toString(usr.getSenha());
+            
 
-
-            String[] dadosUsuario = {usr.getNomeCompleto(),usr.getNomeDeUsuario(),stringCpf,stringSenha};
-
-            return dadosUsuario.toString();
+            return usr;
         }
 
   
