@@ -6,7 +6,9 @@
 REPETIÇÃO {
  
  Função para escolha das opções, irá retornar a opção:
+ 
  BEM VINDO
+ 
  1 - Entrar  
  2 - Cadastrar
  3 - Sair
@@ -15,6 +17,7 @@ REPETIÇÃO {
   
   CASO 1:
    REPETIÇÂO{
+   
    Se não possuir nenhum cadastro no arrayList, ele avisa e volta para o menu principal.
    Chama a função de login:
     
@@ -24,12 +27,14 @@ REPETIÇÃO {
   }
  
  CASO 2:
+ 
   Nome Completo:
   Nome de usuário:
   CPF:
   Senha:
       
  CASO 3:
+ 
   A variável da repetição recebe False, e o programa acaba.
 
 }
