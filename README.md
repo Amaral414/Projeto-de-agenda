@@ -22,7 +22,7 @@ REPETIÇÃO {
    SENHA:     
   }
  
- CASO 2:
+ CASO 2:  
   Chama a função de cadastro:
   
   Nome Completo:     
