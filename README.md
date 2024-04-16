@@ -2,12 +2,10 @@
  Desenvolvimento de uma agenda pessoal em Java.     
  Por enquanto ela roda apenas no terminal, mais pra frente quando estiver pronta talvez tenha visual.
 
-REPETIÇÃO {
- 
+REPETIÇÃO {   
  Função para escolha das opções, irá retornar a opção:
  
- BEM VINDO
- 
+ BEM VINDO   
  1 - Entrar  
  2 - Cadastrar   
  3 - Sair
@@ -15,8 +13,7 @@ REPETIÇÃO {
  ESCOLHA{
   
   CASO 1:      
-   REPETIÇÂO{
-   
+   REPETIÇÂO{   
    Se não possuir nenhum cadastro no arrayList, ele avisa e volta para o menu principal.      
    Chama a função de login:
     
@@ -26,14 +23,14 @@ REPETIÇÃO {
   }
  
  CASO 2:
- 
+  Chama a função de cadastro:
+  
   Nome Completo:     
   Nome de usuário:     
   CPF:     
   Senha:     
       
- CASO 3:
- 
+ CASO 3:  
   A variável da repetição recebe False, e o programa acaba.
 
 }
