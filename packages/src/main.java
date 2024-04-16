@@ -15,14 +15,36 @@ public class main{
             
 
             int escolhe = opcoesEntrada();
-            switch (escolhe) {
+            switch (escolhe){
+                
                 case 1: //  ENTRAR: ( APARECE OS USUARIOS AQUI)
+                    boolean condicaoGeral2 = true;
+                    do {
+                        if (condicaoGeral != usuarios.isEmpty()) { // Verifica se o Array está vazio.
+                            int cpf, senhaUsuario;
+                            usuario usr;
                 
-                
-                
-                for (usuario i: usuarios) {
-                    System.out.println(i.getNomeCompleto());
-                }
+                            System.out.println("==== DIGITE SEU RA E SENHA ===="); // Faz o loggin.
+                            System.out.print("CPF: ");
+                            cpf = input.nextInt();
+                            System.out.print("Senha: ");
+                            senhaUsuario = input.nextInt();
+
+                            boolean condicao = login(usuarios.contains(cpf), usuarios.contains(senhaUsuario));// Verifica se possui CPF e Senha no Array.
+                            //ERRO: Ele vai retornar False porque eu estou pedindo o cpf e a senha, mas o array esta guardando objetos
+                            //      Primeiro eu tenho que tentar acessar os objetos, e depois pegar o CPF e a Senha.
+
+                            if (condicao == true) { // Se retornar TRUE ele entra se não, não.
+                                System.out.println("ENTROOOU!!!");
+                                
+                            }else{System.out.println("Senha Incorreta!!");}
+                        
+                        
+                        }else{ // Se o Array estiver vazio.
+                            System.out.println("Não há cadastros registrados!");
+                            condicaoGeral2 = false;
+                        }
+                    } while (condicaoGeral2);
                 
 
                 break;
@@ -34,7 +56,7 @@ public class main{
                     break;
 
 
-                case 3:
+                case 3: // SAIR:
                     condicaoGeral = false;
                     
 
@@ -83,21 +105,15 @@ public class main{
     
         }
     
-        public static int login(){
-            Scanner input = new Scanner(System.in);
-                   
-            int condition1 = 0;
-                
-            int cpf;
-            int senhaUsuario;
+        public static boolean login(boolean CPF, boolean senha){
+            boolean condition = false;  
+            
+            if (CPF && senha == true){ // Se tiver a Senha e o CPF no Array, retornará TRUE.
 
-            System.out.println("==== DIGITE SEU RA E SENHA ====");
-            System.out.print("CPF: ");
-            cpf = input.nextInt();
-            System.out.print("Senha: ");
-            senhaUsuario = input.nextInt();
+                condition = true;                
+            }
 
-            return condition1;
+            return condition;
         }
     
         public static usuario cadastrar(){
