@@ -10,7 +10,7 @@ REPETIÇÃO {
  BEM VINDO
  
  1 - Entrar  
- 2 - Cadastrar
+ 2 - Cadastrar   
  3 - Sair
  
  ESCOLHA{
@@ -21,17 +21,17 @@ REPETIÇÃO {
    Se não possuir nenhum cadastro no arrayList, ele avisa e volta para o menu principal.
    Chama a função de login:
     
-   DIGITE SEU CPF E SENHA
-   CPF:
-   SENHA:
+   DIGITE SEU CPF E SENHA    
+   CPF:       
+   SENHA:     
   }
  
  CASO 2:
  
-  Nome Completo:
-  Nome de usuário:
-  CPF:
-  Senha:
+  Nome Completo:     
+  Nome de usuário:     
+  CPF:     
+  Senha:     
       
  CASO 3:
  
