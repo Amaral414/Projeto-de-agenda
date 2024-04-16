@@ -18,7 +18,7 @@ REPETIÇÃO {
   CASO 1:      
    REPETIÇÂO{
    
-   Se não possuir nenhum cadastro no arrayList, ele avisa e volta para o menu principal.
+   Se não possuir nenhum cadastro no arrayList, ele avisa e volta para o menu principal.      
    Chama a função de login:
     
    DIGITE SEU CPF E SENHA    
