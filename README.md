@@ -15,7 +15,7 @@ REPETIÇÃO {
  
  ESCOLHA{
   
-  CASO 1:
+  CASO 1:      
    REPETIÇÂO{
    
    Se não possuir nenhum cadastro no arrayList, ele avisa e volta para o menu principal.
