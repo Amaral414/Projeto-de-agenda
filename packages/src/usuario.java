@@ -1,8 +1,7 @@
 public class usuario {
-    String[] dados;
+    String dados;
     String nomeCompleto,nome, nomeDeUsuario;
-    int senha;
-    int CPF;
+    int senha, CPF;
     
     public usuario(int CPF, String nomeCompleto,String nomeDeUsuario, int senha) {
     this.CPF = CPF;
@@ -45,12 +44,8 @@ public class usuario {
     public int getCPF() {
         return CPF;
     }
-    public String[] getDados(){
-        
-        return dados;
-    }
     
-    
+ 
 
     
 }
