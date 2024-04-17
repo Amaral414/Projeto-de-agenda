@@ -12,35 +12,50 @@ public class main{
 
         do {
             
-            
-
             int escolhe = opcoesEntrada();
             switch (escolhe){
+
+
+
+
                 
-                case 1: //  ENTRAR: ( APARECE OS USUARIOS AQUI)
+                case 1: //  ENTRAR:
                     boolean condicaoGeral2 = true;
-                    do {
-                        if (condicaoGeral != usuarios.isEmpty()) { // Verifica se o Array está vazio.
+                    boolean condicaoTeste = true;
+                    usuario usr;
+
+
+                    //Quando estiver sem cadastro, não pode aparecer esse...
+                    System.out.println("ESCOLHA O PERFIL:");
+                    for (usuario i: usuarios) {
+                        System.out.println(usuarios.size()+"-"+i.getNomeCompleto());// Colocar o número antes do nome...
+                    }
+                    int perfil = input.nextInt();
+                    //perfil = perfil-1;
+                    usr = usuarios.get(perfil);
+
+
+
+                    do { // Repetição do Login...(OK)
+                        if (condicaoTeste != usuarios.isEmpty()) { // Verifica se o Array está vazio...(OK)
                             int cpf, senhaUsuario;
-                            usuario usr;
-                
-                            System.out.println("==== DIGITE SEU RA E SENHA ===="); // Faz o loggin.
+                            
+
+                            System.out.println("DIGITE SEU CPF E SENHA..."); // Faz o Login...(OK)
                             System.out.print("CPF: ");
                             cpf = input.nextInt();
                             System.out.print("Senha: ");
                             senhaUsuario = input.nextInt();
+                            
 
-                            boolean condicao = login(usuarios.contains(cpf), usuarios.contains(senhaUsuario));// Verifica se possui CPF e Senha no Array.
-                            //ERRO: Ele vai retornar False porque eu estou pedindo o cpf e a senha, mas o array esta guardando objetos
-                            //      Primeiro eu tenho que tentar acessar os objetos, e depois pegar o CPF e a Senha.
-
-                            if (condicao == true) { // Se retornar TRUE ele entra se não, não.
-                                System.out.println("ENTROOOU!!!");
+                            if (usr.getCPF() == cpf && usr.getSenha() == senhaUsuario) { // Se CPF for igual entra
+                                System.out.println("Entrou!!!\n");
+                                condicaoGeral=false;condicaoGeral2=false; // Recebe False e acaba o programa (tirar depois)
                                 
-                            }else{System.out.println("Senha Incorreta!!");}
+                            }else{System.out.println("Senha ou CPF Incorreto!!\n");}
                         
                         
-                        }else{ // Se o Array estiver vazio.
+                        }else{ // Se o Array estiver vazio...(OK)
                             System.out.println("Não há cadastros registrados!");
                             condicaoGeral2 = false;
                         }
@@ -48,12 +63,18 @@ public class main{
                 
 
                 break;
+
+
+
                     
 
                 case 2: //  CADASTRAR:
                     usuarios.add(cadastrar());
 
                     break;
+
+
+
 
 
                 case 3: // SAIR:
@@ -105,15 +126,11 @@ public class main{
     
         }
     
-        public static boolean login(boolean CPF, boolean senha){
-            boolean condition = false;  
+        public static boolean login(ArrayList listaDeUsuario,int CPF){
             
-            if (CPF && senha == true){ // Se tiver a Senha e o CPF no Array, retornará TRUE.
 
-                condition = true;                
-            }
-
-            return condition;
+            
+            return false;
         }
     
         public static usuario cadastrar(){
@@ -140,3 +157,13 @@ public class main{
   
         
 }
+
+//for (usuario i: usuarios) {
+//    System.out.println(usuarios.get(i.getCPF()));
+//}
+
+
+//boolean condicao = login(usuarios.get(0));// Verifica se possui CPF e Senha no Array.
+
+//ERRO: Ele vai retornar False porque eu estou pedindo o cpf e a senha, mas o array esta guardando objetos
+//      Primeiro eu tenho que tentar acessar os objetos, e depois pegar o CPF e a Senha.
