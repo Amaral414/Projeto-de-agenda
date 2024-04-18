@@ -19,7 +19,7 @@ public class usuario {
     }
     public void setDados(int CPF, String nome,String email, int senha){
         CPF = getCPF();
-        nome = getNomeCompleto();
+        nome = getNome();
         email = getEmail();
         senha = getSenha();
     }
@@ -32,7 +32,7 @@ public class usuario {
     public void setSenha(int senha) {
         this.senha = senha;
     }
-    public String getNomeCompleto() {
+    public String getNome() {
         return nome;
     }
     public String getEmail() {

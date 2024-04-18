@@ -25,7 +25,7 @@ public class main{
 
                         System.out.println("\nESCOLHA O PERFIL:");// Lista de usuários...(OK)
                         for (usuario i: usuarios) {
-                            System.out.println(cont+" - "+i.getNomeCompleto().toUpperCase());
+                            System.out.println(cont+" - "+i.getNome().toUpperCase());
                             cont = 1+cont;
                         }
                         cont=0;
@@ -46,7 +46,7 @@ public class main{
                                         System.out.println("Visualizando conteúdo");
                                         break;
                                     case 2:
-                                        System.out.println("Dados pessoais");
+                                        dados(usr);
                                         break;
                                     case 3:
                                         System.out.println("Saindo...");
@@ -116,11 +116,11 @@ public class main{
             
         }
     
-        public static void dados(String nomeC,String nomeU,int cpf){ 
-            System.out.println("SEUS DADOS:");
-            System.out.printf("Nome completo: %s\n", nomeC);
-            System.out.printf("Nome de usuário: %s\n", nomeU);
-            System.out.printf("CPF: %d\n", cpf);
+        public static void dados(usuario usr){ 
+            System.out.println("\nSEUS DADOS:");
+            System.out.printf("Nome: %s\n", usr.getNome());
+            System.out.printf("Email: %s\n", usr.getEmail());
+            System.out.printf("CPF: %d\n", usr.getCPF());
 
             
     
