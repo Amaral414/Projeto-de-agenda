@@ -8,42 +8,60 @@ public class main{
     public static void main(String args[]){
         Scanner input = new Scanner(System.in);
         ArrayList<usuario> usuarios = new ArrayList();
-        boolean condicaoGeral = true;
-
+        boolean condicaoGeral = true, condicaoLogado = true, condicaoTeste = true;
+        int cpf, senhaUsuario, cont=0;
+        usuario usr;
+        boolean resp;
+        
         do {
             
-            int escolhe = opcoesEntrada();
-            switch (escolhe){
+            int escolha = opcoesEntrada();
+            switch (escolha){
 
 
-                case 1: //  ENTRAR:
-                    boolean condicaoGeral2 = true;
-                    boolean condicaoTeste = true;
+                case 1: //  ENTRAR:            
 
-                    if (condicaoTeste != usuarios.isEmpty()) { // Verifica se o Array está vazio...(OK)
-                        int cpf, senhaUsuario, cont=0;
-                        usuario usr;
-                        boolean resp;
+                    if (condicaoTeste != usuarios.isEmpty()) { // Verifica se o Array está vazio...(OK)                        
 
-                        System.out.println("ESCOLHA O PERFIL:");// Lista de usuários...(OK)
+                        System.out.println("\nESCOLHA O PERFIL:");// Lista de usuários...(OK)
                         for (usuario i: usuarios) {
                             System.out.println(cont+" - "+i.getNomeCompleto().toUpperCase());
                             cont = 1+cont;
                         }
+                        cont=0;
                         int perfil = input.nextInt();
                         usr = usuarios.get(perfil);
+                        
 
-                        resp = login(usr);
+                        resp = login(usr);// Faz o login e retorna True
 
-                        condicaoGeral = !resp;
+                        if (resp) {// Quando retornar true, cai na condição para outras funcionalidades
+                            
+                            do{
+
+                                escolha = opcoesLogado();// Opções
+
+                                switch (escolha) {
+                                    case 1:
+                                        System.out.println("Visualizando conteúdo");
+                                        break;
+                                    case 2:
+                                        System.out.println("Dados pessoais");
+                                        break;
+                                    case 3:
+                                        System.out.println("Saindo...");
+                                        condicaoLogado = false;
+                                        break;
+                                }
+                            }while(condicaoLogado);
+                            
+                        }
+
+                        
 
                     }else{ // Se o Array estiver vazio...(OK)
                         System.out.println("Não há cadastros registrados!");
-                        condicaoGeral2 = false;
                     }
-                    
-                
-
                 break;
 
 
@@ -86,11 +104,11 @@ public class main{
             Scanner input = new Scanner(System.in);
             int escolha;
     
-            System.out.println("Ações");
+            System.out.println("\nAções");
             System.out.println("1 - Visualizar conteúdo");
             System.out.println("2 - Dados Pessoais");
             System.out.println("3 - Sair");
-            System.out.println("R: ");
+            System.out.print("R: ");
     
             escolha = input.nextInt();
     
@@ -111,7 +129,7 @@ public class main{
         public static boolean login(usuario usr){
             Scanner input = new Scanner(System.in);
             int cpf, senhaUsuario, cont=0;
-            boolean resp = false, condicaoGeral2 = true;
+            boolean resp = false, condicao = true;
 
             do { // Repetição do Login...(OK)
                         
@@ -124,11 +142,11 @@ public class main{
 
                 if (usr.getCPF() == cpf && usr.getSenha() == senhaUsuario) { // Se CPF for igual entra
                     System.out.println("Entrou!!!\n");
-                    resp=true;condicaoGeral2=false; // Recebe False e acaba o programa (tirar depois)
+                    resp=true;condicao=false; // Recebe False e acaba o programa (tirar depois)
                     
                 }else{System.out.println("Senha ou CPF Incorreto!!\n");}
             
-            } while (condicaoGeral2);
+            } while (condicao);
             
             return resp;
         }
@@ -138,7 +156,7 @@ public class main{
             String email, nome;
             int CPF, senha;
     
-            System.out.print("Nome: ");
+            System.out.print("\nNome: ");
             nome = input.next();
             System.out.print("Email: ");
             email = input.next();
