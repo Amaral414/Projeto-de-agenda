@@ -16,50 +16,32 @@ public class main{
             switch (escolhe){
 
 
-
-
-                
                 case 1: //  ENTRAR:
                     boolean condicaoGeral2 = true;
                     boolean condicaoTeste = true;
-                    usuario usr;
 
+                    if (condicaoTeste != usuarios.isEmpty()) { // Verifica se o Array está vazio...(OK)
+                        int cpf, senhaUsuario, cont=0;
+                        usuario usr;
+                        boolean resp;
 
-                    //Quando estiver sem cadastro, não pode aparecer esse...
-                    System.out.println("ESCOLHA O PERFIL:");
-                    for (usuario i: usuarios) {
-                        System.out.println(usuarios.size()+"-"+i.getNomeCompleto());// Colocar o número antes do nome...
-                    }
-                    int perfil = input.nextInt();
-                    //perfil = perfil-1;
-                    usr = usuarios.get(perfil);
-
-
-
-                    do { // Repetição do Login...(OK)
-                        if (condicaoTeste != usuarios.isEmpty()) { // Verifica se o Array está vazio...(OK)
-                            int cpf, senhaUsuario;
-                            
-
-                            System.out.println("DIGITE SEU CPF E SENHA..."); // Faz o Login...(OK)
-                            System.out.print("CPF: ");
-                            cpf = input.nextInt();
-                            System.out.print("Senha: ");
-                            senhaUsuario = input.nextInt();
-                            
-
-                            if (usr.getCPF() == cpf && usr.getSenha() == senhaUsuario) { // Se CPF for igual entra
-                                System.out.println("Entrou!!!\n");
-                                condicaoGeral=false;condicaoGeral2=false; // Recebe False e acaba o programa (tirar depois)
-                                
-                            }else{System.out.println("Senha ou CPF Incorreto!!\n");}
-                        
-                        
-                        }else{ // Se o Array estiver vazio...(OK)
-                            System.out.println("Não há cadastros registrados!");
-                            condicaoGeral2 = false;
+                        System.out.println("ESCOLHA O PERFIL:");// Lista de usuários...(OK)
+                        for (usuario i: usuarios) {
+                            System.out.println(cont+" - "+i.getNomeCompleto().toUpperCase());
+                            cont = 1+cont;
                         }
-                    } while (condicaoGeral2);
+                        int perfil = input.nextInt();
+                        usr = usuarios.get(perfil);
+
+                        resp = login(usr);
+
+                        condicaoGeral = !resp;
+
+                    }else{ // Se o Array estiver vazio...(OK)
+                        System.out.println("Não há cadastros registrados!");
+                        condicaoGeral2 = false;
+                    }
+                    
                 
 
                 break;
@@ -126,28 +108,46 @@ public class main{
     
         }
     
-        public static boolean login(ArrayList listaDeUsuario,int CPF){
-            
+        public static boolean login(usuario usr){
+            Scanner input = new Scanner(System.in);
+            int cpf, senhaUsuario, cont=0;
+            boolean resp = false, condicaoGeral2 = true;
 
+            do { // Repetição do Login...(OK)
+                        
+                System.out.println("DIGITE SEU CPF E SENHA..."); // Faz o Login...(OK)
+                System.out.print("CPF: ");
+                cpf = input.nextInt();
+                System.out.print("Senha: ");
+                senhaUsuario = input.nextInt();
+                
+
+                if (usr.getCPF() == cpf && usr.getSenha() == senhaUsuario) { // Se CPF for igual entra
+                    System.out.println("Entrou!!!\n");
+                    resp=true;condicaoGeral2=false; // Recebe False e acaba o programa (tirar depois)
+                    
+                }else{System.out.println("Senha ou CPF Incorreto!!\n");}
             
-            return false;
+            } while (condicaoGeral2);
+            
+            return resp;
         }
     
         public static usuario cadastrar(){
             Scanner input = new Scanner(System.in);
-            String nomeDeUsuario, nomeCompleto;
+            String email, nome;
             int CPF, senha;
     
-            System.out.print("Nome Completo: ");
-            nomeCompleto = input.next();
-            System.out.print("Nome de usuário: ");
-            nomeDeUsuario = input.next();
+            System.out.print("Nome: ");
+            nome = input.next();
+            System.out.print("Email: ");
+            email = input.next();
             System.out.print("CPF: ");
             CPF = input.nextInt();
             System.out.print("Senha: ");
             senha = input.nextInt();
 
-            usuario usr = new usuario(CPF, nomeCompleto, nomeDeUsuario, senha);
+            usuario usr = new usuario(CPF, nome, email, senha);
 
             
 
