@@ -1,12 +1,12 @@
 public class usuario {
     String dados;
-    String nomeCompleto,nome, nomeDeUsuario;
+    String nome, email;
     int senha, CPF;
     
-    public usuario(int CPF, String nomeCompleto,String nomeDeUsuario, int senha) {
+    public usuario(int CPF, String nome,String email, int senha) {
     this.CPF = CPF;
-    this.nomeCompleto = nomeCompleto;
-    this.nomeDeUsuario = nomeDeUsuario;
+    this.nome = nome;
+    this.email = email;
     this.senha = senha;
     }
     
@@ -17,26 +17,26 @@ public class usuario {
     public void setCPF(int CPF) {
         this.CPF = CPF;
     }
-    public void setDados(int CPF, String nomeCompleto,String nomeDeUsuario, int senha){
+    public void setDados(int CPF, String nome,String email, int senha){
         CPF = getCPF();
-        nomeCompleto = getNomeCompleto();
-        nomeDeUsuario = getNomeDeUsuario();
+        nome = getNomeCompleto();
+        email = getEmail();
         senha = getSenha();
     }
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setNomeCompleto(String nome) {
+        this.nome = nome;
     }
-    public void setNomeDeUsuario(String nomeDeUsuario) {
-        this.nomeDeUsuario = nomeDeUsuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public void setSenha(int senha) {
         this.senha = senha;
     }
     public String getNomeCompleto() {
-        return nomeCompleto;
+        return nome;
     }
-    public String getNomeDeUsuario() {
-        return nomeDeUsuario;
+    public String getEmail() {
+        return email;
     }
     public int getSenha() {
         return senha;
