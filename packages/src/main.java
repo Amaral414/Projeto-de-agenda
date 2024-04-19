@@ -6,8 +6,12 @@ public class main{
 
     // ================= MAIN ================= 
     public static void main(String args[]){
+        usuario usr1 = new usuario(456, "Dick Vigarista", "dick.vigarista@gmail.com", 123);
+        usuario usr2 = new usuario(987, "Mutley", "mutley@gmail.com", 123);    
         Scanner input = new Scanner(System.in);
         ArrayList<usuario> usuarios = new ArrayList();
+        usuarios.add(usr1);
+        usuarios.add(usr2);
         boolean condicaoGeral = true, condicaoLogado = true, condicaoTeste = true;
         int cpf, senhaUsuario, cont=0;
         usuario usr;
@@ -48,13 +52,17 @@ public class main{
                                     case 2:
                                         dados(usr);
                                         break;
-                                    case 3:
+                                    
+                                        case 3:
+                                    
+                                    
+                                        case 4:
                                         System.out.println("Saindo...");
                                         condicaoLogado = false;
                                         break;
                                 }
                             }while(condicaoLogado);
-                            
+                            condicaoLogado = true;
                         }
 
                         
@@ -105,9 +113,10 @@ public class main{
             int escolha;
     
             System.out.println("\nAções");
-            System.out.println("1 - Visualizar conteúdo");
-            System.out.println("2 - Dados Pessoais");
-            System.out.println("3 - Sair");
+            System.out.println("1 - Criar conteúdo");
+            System.out.println("2 - Visualizar conteúdo");
+            System.out.println("3 - Dados Pessoais");
+            System.out.println("4 - Sair");
             System.out.print("R: ");
     
             escolha = input.nextInt();
