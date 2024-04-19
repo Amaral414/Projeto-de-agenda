@@ -55,9 +55,6 @@ public class usuario {
         
         
         System.out.println("========== Criar anotacao ==========");
-        System.out.println("Criado por: "+nomeUsuario);
-        System.out.println("Email: "+Email);
-        System.out.println("Data: "+ data);
         System.out.print("Nome da Anotação: ");
         nome = input.next();
         System.out.print("Anotação: ");
@@ -70,6 +67,17 @@ public class usuario {
 
     public void minhasAnotacoes(anotacao anot){
         anotacoes.add(anot);
+    }
+    public void mostrarAnotacoes(usuario usr, ArrayList lista){
+        String data="19/04/2024";
+        System.out.println("========== Criar anotacao ==========");
+        System.out.println("Criado por: "+usr.getNome());
+        System.out.println("Email: "+usr.getEmail());
+        System.out.println("Data: "+ data);
+        for (int i=0; i==10;) {
+            
+        }
+
     }
 
     
