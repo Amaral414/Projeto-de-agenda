@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.time.*;
+import java.util.Scanner;
 public class usuario {
+    ArrayList<anotacao> anotacoes = new ArrayList();
     String dados;
     String nome, email;
     int senha, CPF;
@@ -44,6 +48,31 @@ public class usuario {
     public int getCPF() {
         return CPF;
     }
+
+    public anotacao criarAnotacao(String nomeUsuario, String Email){
+        Scanner input = new Scanner(System.in);
+        String nome, nota, data="18/04/2024";
+        
+        
+        System.out.println("========== Criar anotacao ==========");
+        System.out.println("Criado por: "+nomeUsuario);
+        System.out.println("Email: "+Email);
+        System.out.println("Data: "+ data);
+        System.out.print("Nome da Anotação: ");
+        nome = input.next();
+        System.out.print("Anotação: ");
+        nota = input.nextLine();
+        
+        anotacao anot = new anotacao(nome,data,nota);
+
+        return anot; 
+    }
+
+    public void minhasAnotacoes(anotacao anot){
+        anotacoes.add(anot);
+    }
+
+    
     
  
 

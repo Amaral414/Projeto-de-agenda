@@ -19,7 +19,7 @@ public class main{
         
         do {
             
-            int escolha = opcoesEntrada();
+            int escolha = opcoesEntrada();// Opções de entrada
             switch (escolha){
 
 
@@ -33,15 +33,40 @@ public class main{
                             cont = 1+cont;
                         }
                         cont=0;
-                        int perfil = input.nextInt();
-                        usr = usuarios.get(perfil);
+                        int perfil = input.nextInt();// Escolhe o usuario pra entrar.
+                        usr = usuarios.get(perfil);// usr Recebe o numero do usuario na lista.
                         
 
-                        resp = login(usr);// Faz o login e retorna True
-
-                        if (resp) {// Quando retornar true, cai na condição para outras funcionalidades
+                        resp = login(usr);// resp Recebe true para entrar na condição de logado.
+                        
+                        if (resp) {// Funcionalidades depois de logado.
                             
-                          
+                            do{
+
+                                escolha = opcoesLogado();// Opções de funcionalidades.
+
+                                switch (escolha) {
+                                    case 1:
+                                        anotacao anotacaoUsuario = usr.criarAnotacao(usr.getNome(), usr.getEmail());
+                                        usr.minhasAnotacoes(anotacaoUsuario);
+
+                                        break;
+                                    case 2:
+                                        System.out.println("Visualizando conteúdo");
+                                        System.out.println(usr.anotacoes.getFirst()); 
+                                        break;
+                                    
+                                    case 3:
+                                        dados(usr);
+                                        break;
+                                        
+                                    case 4:
+                                        System.out.println("Saindo...");
+                                        condicaoLogado = false;
+                                        break;
+                                        
+                                }
+                            }while(condicaoLogado);
                             condicaoLogado = true;
                         }
 
