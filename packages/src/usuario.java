@@ -49,17 +49,14 @@ public class usuario {
         return CPF;
     }
 
-    public anotacao criarAnotacao(String nomeUsuario, String Email){
+    public anotacao criarAnotacao(){
         Scanner input = new Scanner(System.in);
         String nome, nota, data="18/04/2024";
         
         
-        System.out.println("========== Criar anotacao ==========");
-        System.out.println("Criado por: "+nomeUsuario);
-        System.out.println("Email: "+Email);
-        System.out.println("Data: "+ data);
+        System.out.println("\n========== Criar anotacao ==========");
         System.out.print("Nome da Anotação: ");
-        nome = input.next();
+        nome = input.nextLine();
         System.out.print("Anotação: ");
         nota = input.nextLine();
         
@@ -70,6 +67,17 @@ public class usuario {
 
     public void minhasAnotacoes(anotacao anot){
         anotacoes.add(anot);
+    }
+    public void mostrarAnotacoes(anotacao anot, usuario usr){
+        anot.setData("19/04/2024");
+        System.out.println("\n---------------------------------------------");
+        System.out.printf("\n=============== %s ===============\n",anot.getNome().toUpperCase());
+        System.out.println("Criado por: "+usr.getNome());
+        System.out.println("Data: "+anot.getData());
+        System.out.println("\nNota: ");
+        System.out.println(anot.getNota());
+       
+
     }
 
     
