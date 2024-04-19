@@ -41,27 +41,7 @@ public class main{
 
                         if (resp) {// Quando retornar true, cai na condição para outras funcionalidades
                             
-                            do{
-
-                                escolha = opcoesLogado();// Opções
-
-                                switch (escolha) {
-                                    case 1:
-                                        System.out.println("Visualizando conteúdo");
-                                        break;
-                                    case 2:
-                                        dados(usr);
-                                        break;
-                                    
-                                        case 3:
-                                    
-                                    
-                                        case 4:
-                                        System.out.println("Saindo...");
-                                        condicaoLogado = false;
-                                        break;
-                                }
-                            }while(condicaoLogado);
+                          
                             condicaoLogado = true;
                         }
 
